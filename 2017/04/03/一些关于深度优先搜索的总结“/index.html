@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.2 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            一些关于深度优先搜索的总结“  | 
+        
+        Extratztty&#39;s Romain
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="extratztty">
+    <meta name="description" content="null">
+    <meta name="keywords" content="null,C++">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Extratztty&#39;s Romain">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://extratztty.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="一些关于深度优先搜索的总结“  | Extratztty&#39;s Romain">
+    <meta property="og:description" content="null">
+    <meta property="og:article:tag" content="C++"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #E9EBEC;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关于深度优先搜索"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于深度优先搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1326-排列组合"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1326:排列组合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输入"><span class="post-toc-number">1.1.0.2.</span> <span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输出"><span class="post-toc-number">1.1.0.3.</span> <span class="post-toc-text">输出</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1353-素数环"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1353:素数环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#题目描述-1"><span class="post-toc-number">1.2.0.1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输入-1"><span class="post-toc-number">1.2.0.2.</span> <span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输出-1"><span class="post-toc-number">1.2.0.3.</span> <span class="post-toc-text">输出</span></a></li></ol></li></ol></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                一些关于深度优先搜索的总结“ 
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>extratztty</strong>
+        <span>4月 03, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/C/">C++</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=一些关于深度优先搜索的总结“ &url=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=一些关于深度优先搜索的总结“ &url=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html&via=extratztty" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html&title=一些关于深度优先搜索的总结“ " target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Extratztty&#39;s Romain&title=一些关于深度优先搜索的总结“ &summary=null&pics=https://extratztty.github.io/img/favicon.png&url=https://extratztty.github.io/2017/04/03/一些关于深度优先搜索的总结“/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://extratztty.github.io//2017/04/03/一些关于深度优先搜索的总结“/index.html&text=一些关于深度优先搜索的总结“ " target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>过几天就是蓝桥杯了，虽然lowbee一个，但毕竟交了钱的，有必要做些准备。                 </p>
+<p>其实上个学期前都没怎么用递归，更不用说深搜，初次接触还是在寒假蓝桥杯培训的时候，但当时只留了个概念，到最近才开始正式的开始一些思考总结。</p>
+<h1 id="关于深度优先搜索"><a href="#关于深度优先搜索" class="headerlink" title="关于深度优先搜索"></a>关于深度优先搜索</h1><p>深度优先搜索（Depth-First-Search）是搜索算法的一种。是沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。</p>
+<p>以上是搜狗百科的总结，总的来说我认为这就是一种没什么想法的时候，不考虑各种复杂度时可以用，且应用范围还是挺广的一种算法（一般是用来解迷宫一类的图形题的吧）。额，反正大部分我用循环解不出来的题，用深搜思路倒是很容易理顺，虽说经常出BUG，或是时间超限什么的。</p>
+<p>最近找了几道题练习一下深搜，虽然都不是最优的解法，有的都AC 不了，但就对深搜的总结而言还是很有帮助的。</p>
+<h2 id="1326-排列组合"><a href="#1326-排列组合" class="headerlink" title="1326:排列组合"></a><a href="http://oj.acmclub.cn/problem.php?id=1326" target="_blank" rel="external">1326:排列组合</a></h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>从1-n几个数字中选出m个数字组合，输出所有组合方式</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>输入n和 m，中间用空格隔开</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>输出所有组合方式，每行一个，每个数字用空格隔开</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;//1326</span></div><div class="line">using namespace std;</div><div class="line">//全局变量</div><div class="line">int n,m,a[100];</div><div class="line">//以步数作为函数的参数，标记递归步数，且递归步数限定，易于预留出口</div><div class="line">void dfs(int step)&#123;</div><div class="line">	int i;</div><div class="line">	<span class="keyword">for</span>(i=a[step-1]+1;i&lt;=n;i++)&#123;</div><div class="line">		a[step]=i;</div><div class="line">//递归——记录下一步递归</div><div class="line">		dfs(step+1);</div><div class="line">//回溯——通过回溯保证同级的节点以相似的状态进行下一步递归</div><div class="line">		a[step]=0;</div><div class="line">	&#125;</div><div class="line">//出口——预留出口结束递归</div><div class="line">	<span class="keyword">if</span>(step==m+1)&#123;</div><div class="line">		<span class="keyword">for</span>(i=1;i&lt;=m-1;i++)&#123;</div><div class="line">			cout&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;a[m]&lt;&lt;endl;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	//cin&gt;&gt;n&gt;&gt;m;</div><div class="line">//调用函数，step初始化</div><div class="line">	dfs(1);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="1353-素数环"><a href="#1353-素数环" class="headerlink" title="1353:素数环"></a><a href="http://oj.acmclub.cn/problem.php?id=1353" target="_blank" rel="external">1353:素数环</a></h2><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入正整数n，把正整数1.2.3…..n组成一个环，使得相邻的两个整数之和均为素数，输出时从整数1开始逆时针排列</p>
+<p>无法形成素数环的输出“No”。</p>
+<p>同一个环应恰输出一次(n&lt;=16).</p>
+<h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><p>正整数n</p>
+<h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;//1353</span></div><div class="line">using namespace std;</div><div class="line">//全局变量</div><div class="line">int n,book[20],a[20]=&#123;0,1&#125;,count;</div><div class="line">//布尔型函数——判断是否为素数</div><div class="line">bool su(int su)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;su;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(su%i==0)<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line">//以步数作为函数的参数，标记递归步数，且递归步数限定，易于预留出口</div><div class="line">void dfs(int step)&#123;</div><div class="line">	int i;</div><div class="line">	<span class="keyword">for</span>(i=2;i&lt;=n;i++)&#123;</div><div class="line">//book数组用于标记该数字是否已使用过，用于查重，保证每个数字使用一次</div><div class="line">		<span class="keyword">if</span>(book[i]==0)&#123;</div><div class="line">//如果该数未被使用，假定它已被使用，记录，并进行下一层递归</div><div class="line">			book[i]=1;</div><div class="line">			a[step]=i;</div><div class="line">//条件判断，并进行下一层递归</div><div class="line">			<span class="keyword">if</span>(su(a[step]+a[step-1]))dfs(step+1);</div><div class="line">//回溯</div><div class="line">			a[step]=0;</div><div class="line">			book[i]=0;</div><div class="line">		&#125; </div><div class="line">	&#125; </div><div class="line">//出口，判断并输出</div><div class="line">	<span class="keyword">if</span>(step==n+1)&#123;</div><div class="line">		<span class="keyword">if</span>(su(a[n]+a[1]))&#123;</div><div class="line">			<span class="keyword">for</span>(i=1;i&lt;=n;i++)cout&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">			cout&lt;&lt;endl;</div><div class="line">//count计数</div><div class="line">			count++;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	cin&gt;&gt;n;</div><div class="line">//调用函数，step初始化</div><div class="line">	dfs(2);</div><div class="line">	//<span class="keyword">if</span>(count==0)cout&lt;&lt;<span class="string">"No"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">``` bash</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## [1393:骑士游历](http://oj.acmclub.cn/problem.php?id=1393)</span></div><div class="line"></div><div class="line"><span class="comment">#### 题目描述</span></div><div class="line">设有一个n*m的棋盘（2≤n≤50，2≤m≤50），在棋盘上有一个中国象棋马。</div><div class="line">规定：</div><div class="line">1)马只能走日字</div><div class="line">2)马只能向右跳</div><div class="line">问给定起点x1,y1和终点x2,y2，求出马从x1,y1出发到x2,y2的合法路径条数。</div><div class="line"></div><div class="line"><span class="comment">#### 输入</span></div><div class="line">第一行2个整数n和m</div><div class="line">第二行4个整数x1,y1,x2,y2</div><div class="line"></div><div class="line"><span class="comment">#### 输出</span></div><div class="line">方案数</div><div class="line"></div><div class="line">``` bash</div><div class="line">//果断时间超限，但思路确实简单</div><div class="line"><span class="comment">#include&lt;iostream&gt;//1393</span></div><div class="line">using namespace std;</div><div class="line">//全局变量</div><div class="line">int m,n,endx,endy,sum,startx,starty;</div><div class="line">//以递归过程中的主要变量骑士的坐标作为参数</div><div class="line">void dfs(int sx,int sy)&#123;</div><div class="line">//超出地图范围返回</div><div class="line">	<span class="keyword">if</span>(sx&lt;0||sx&gt;n||sy&lt;0||sy&gt;m||sx&gt;endx)<span class="built_in">return</span>;</div><div class="line">//出口</div><div class="line">	<span class="keyword">if</span>(sx==endx&amp;&amp;sy==endy)&#123;</div><div class="line">//记录步数</div><div class="line">		sum++;</div><div class="line">	&#125;</div><div class="line">//对于每种情况不需要提供额外的条件，在可供选择的路径有限时，可以每个列举，而不用明显体现回溯的思想</div><div class="line">//也可以转换成循环</div><div class="line">	dfs(sx+1,sy+2);</div><div class="line">	dfs(sx+2,sy+1);</div><div class="line">	dfs(sx+1,sy-2);</div><div class="line">	dfs(sx+2,sy-1);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	cin&gt;&gt;n&gt;&gt;m&gt;&gt;startx&gt;&gt;starty&gt;&gt;endx&gt;&gt;endy;</div><div class="line">//初始坐标</div><div class="line">	dfs(startx,starty);</div><div class="line">	cout&lt;&lt;sum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## [1287: 防御导弹](http://oj.acmclub.cn/problem.php?id=1287)</span></div><div class="line"></div><div class="line"><span class="comment">#### 题目描述</span></div><div class="line">某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截 系统有一个缺陷：虽然它的第一发炮弹能够达到任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试 用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。</div><div class="line"></div><div class="line"><span class="comment">####  输入</span></div><div class="line">最多20个整数，分别表示导弹依次飞来的高度（雷达给出高度数据是不大于30000的正整数）</div><div class="line"></div><div class="line"><span class="comment">####输出</span></div><div class="line">整数M。表示：这套系统最多能拦截 M 枚导弹.</div><div class="line"></div><div class="line">```bash</div><div class="line">//其实这题不太适合用深搜，不过有发现挺多值得注意的点，于是也写进来了</div><div class="line"><span class="comment">#include&lt;iostream&gt;//1287</span></div><div class="line">using namespace std;</div><div class="line">//全局变量</div><div class="line">int count,a[25]=&#123;30000&#125;,s,ma=-999;</div><div class="line">//参数为上一个导弹的高度</div><div class="line">void dfs(int prev)&#123; </div><div class="line">    int i;</div><div class="line">	<span class="keyword">for</span>(i=prev+1;i&lt;=count;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]&lt;=a[prev])&#123;</div><div class="line">			s++;</div><div class="line">//本次导弹高度座位下一次递归的参数</div><div class="line">			dfs(i);</div><div class="line">//回溯</div><div class="line">			s--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">//出口——若余下的导弹高度均大于当前，返回	  </div><div class="line">	<span class="keyword">for</span>(i=prev+1;i&lt;=count;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]&lt;=a[prev])<span class="built_in">break</span>;</div><div class="line">	&#125;</div><div class="line">//用循环判断均不成立，记录拦截导弹数的至多值</div><div class="line">	<span class="keyword">if</span>(i&gt;count)&#123;</div><div class="line">	   <span class="keyword">if</span>(s&gt;ma)ma=s;</div><div class="line">	   <span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n=1;</div><div class="line">//需用文件导入才能结束循环</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;a[n])n++;</div><div class="line">//记录导弹总数</div><div class="line">	count=n-1;</div><div class="line">	dfs(0);</div><div class="line">	cout&lt;&lt;ma;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/04/02/hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/daily_pic.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="extratztty's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        extratzttydomain@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links/" title="友情链接">
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">2</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/extratztty" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/extratztty.domain/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.svg);">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Extratztty's Romain
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
