@@ -10,7 +10,7 @@
     
     <title>
         
-            extratztty | 
+            图的遍历 | 
         
         Extratztty&#39;s Domain
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="extratztty">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,C++">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://extratztty.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="extratztty | Extratztty&#39;s Domain">
+    <meta property="og:title" content="图的遍历 | Extratztty&#39;s Domain">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="C++"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -211,6 +211,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#主要思想"><span class="post-toc-number">1.</span> <span class="post-toc-text">主要思想</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图的存储"><span class="post-toc-number">2.</span> <span class="post-toc-text">图的存储</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#遍历图的实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">遍历图的实现</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -236,7 +271,7 @@
         
     
             <p class="article-headline-p">
-                extratztty
+                图的遍历
             </p>
         </div>
 
@@ -255,7 +290,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>extratztty</strong>
-        <span>4月 02, 2017</span>
+        <span>4月 04, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -279,7 +314,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/C/">C++</a>
     </ul>
     
 
@@ -295,7 +330,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=extratztty&url=https://extratztty.github.io//about/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=图的遍历&url=https://extratztty.github.io//2017/04/04/图的遍历/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -304,7 +339,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=extratztty&url=https://extratztty.github.io//about/index.html&via=extratztty" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=图的遍历&url=https://extratztty.github.io//2017/04/04/图的遍历/index.html&via=extratztty" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -313,7 +348,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://extratztty.github.io//about/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://extratztty.github.io//2017/04/04/图的遍历/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -322,7 +357,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://extratztty.github.io//about/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://extratztty.github.io//2017/04/04/图的遍历/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -334,7 +369,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Extratztty&#39;s Domain&title=extratztty&summary=null&pics=https://extratztty.github.io/img/favicon.png&url=https://extratztty.github.io/about/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Extratztty&#39;s Domain&title=图的遍历&summary=null&pics=https://extratztty.github.io/img/favicon.png&url=https://extratztty.github.io/2017/04/04/图的遍历/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -352,11 +387,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>真实姓名: 汤梓寅 ;</p>
-<p>出生年月: 1998年02月03日 ;</p>
-<p>星座: 水瓶座 ;</p>
-<p>Mail: extratzttyromain@gmail.com || 1539117070@qq.com ;</p>
-<p>QQ: 1539117070 ;</p>
+        <p>图的遍历分为深度优先遍历和广度优先遍历。</p>
+<h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><p>深度优先遍历的主要思想就是：首先以一个未被访问过的顶点作为起始顶点，沿当前顶点的边走到未访问过的顶点；当没有未访问过的顶点时，则回到上一个顶点，继续试探访问别的顶点，直到所有的顶点都被访问过。显然，深度优先遍历是沿着图的某一条分支遍历直到末端，然后回溯，再沿着另一条进行同样的遍历，直到所有的顶点都被访问过为止。</p>
+<p>广度优先遍历的主要思想就是：首先以一个未被访问过的顶点作为起始顶点，访问其所有相邻的顶点，然后对每个相邻的顶点，再访问它们相邻的未被访问过的顶点，直到所有顶点都被访问过，遍历结束。</p>
+<p>以上摘自<a href="https://book.douban.com/subject/25894685/" target="_blank" rel="external">《啊哈！算法》</a>，除了用深度优先搜索和广度优先搜索实现遍历外，图的遍历需要额外解决如何存储一个图的问题。</p>
+<h1 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h1><p>主要方法是通过把题目所给条件转化成二维数组进行存储。</p>
+<p>举例来讲</p>
+<p>给出如下数据</p>
+<p>5 8</p>
+<p>1 2 2 </p>
+<p>1 5 10</p>
+<p>2 3 3 </p>
+<p>2 5 7 </p>
+<p>3 1 4 </p>
+<p>3 4 4 </p>
+<p>4 5 5</p>
+<p>5 3 3</p>
+<p>内容如下图</p>
+<p><img width="200px" src="/img/啊哈！算法image97.jpg"></p>
+<p>将每条线路的起始位置对映成数组的坐标（对应起始位置无线路表示成 ∞）</p>
+<p><img width="200px" src="/img/啊哈！算法image98.jpg"></p>
+<p>其中将 ∞ 以一个足够大数字代替，即可通过一个整形数组存储所有线路情况。</p>
+<h1 id="遍历图的实现"><a href="#遍历图的实现" class="headerlink" title="遍历图的实现"></a>遍历图的实现</h1><p>以二维数组为例通过深度优先搜索实现遍历</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//初始化</div><div class="line">int book[101],a[101][101],min=999999;</div><div class="line">//cur表示当前位置</div><div class="line">void dfs(int cur)</div><div class="line">&#123;</div><div class="line">	出口</div><div class="line">//尝试当前位置到各个位置的路径</div><div class="line">	<span class="keyword">for</span>(j=1;j&lt;=n;j++)&#123;</div><div class="line">//判断当前位置到各个位置的路径</div><div class="line">		<span class="keyword">if</span>(a[cur][j] != min &amp;&amp; book[j]==0)&#123;</div><div class="line">			book[j]=1;//标记已经过该位置</div><div class="line">			dfs(j);//以当前位置为起点探索下一个目标</div><div class="line">			book[j]=0;//回溯	</div><div class="line">       		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     
 
@@ -388,6 +441,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/04/04/随便扯扯广度优先搜索/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -603,6 +664,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

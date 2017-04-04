@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title><![CDATA[图的遍历]]></title>
+      <url>https://extratztty.github.io/2017/04/04/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      <content type="html"><![CDATA[<p>图的遍历分为深度优先遍历和广度优先遍历。</p>
+<h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><p>深度优先遍历的主要思想就是：首先以一个未被访问过的顶点作为起始顶点，沿当前顶点的边走到未访问过的顶点；当没有未访问过的顶点时，则回到上一个顶点，继续试探访问别的顶点，直到所有的顶点都被访问过。显然，深度优先遍历是沿着图的某一条分支遍历直到末端，然后回溯，再沿着另一条进行同样的遍历，直到所有的顶点都被访问过为止。</p>
+<p>广度优先遍历的主要思想就是：首先以一个未被访问过的顶点作为起始顶点，访问其所有相邻的顶点，然后对每个相邻的顶点，再访问它们相邻的未被访问过的顶点，直到所有顶点都被访问过，遍历结束。</p>
+<p>以上摘自<a href="https://book.douban.com/subject/25894685/" target="_blank" rel="external">《啊哈！算法》</a>，除了用深度优先搜索和广度优先搜索实现遍历外，图的遍历需要额外解决如何存储一个图的问题。</p>
+<h1 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h1><p>主要方法是通过把题目所给条件转化成二维数组进行存储。</p>
+<p>举例来讲</p>
+<p>给出如下数据</p>
+<p>5 8</p>
+<p>1 2 2 </p>
+<p>1 5 10</p>
+<p>2 3 3 </p>
+<p>2 5 7 </p>
+<p>3 1 4 </p>
+<p>3 4 4 </p>
+<p>4 5 5</p>
+<p>5 3 3</p>
+<p>内容如下图</p>
+<p><img width="200px" src="/img/啊哈！算法image97.jpg"></p>
+<p>将每条线路的起始位置对映成数组的坐标（对应起始位置无线路表示成 ∞）</p>
+<p><img width="200px" src="/img/啊哈！算法image98.jpg"></p>
+<p>其中将 ∞ 以一个足够大数字代替，即可通过一个整形数组存储所有线路情况。</p>
+<h1 id="遍历图的实现"><a href="#遍历图的实现" class="headerlink" title="遍历图的实现"></a>遍历图的实现</h1><p>以二维数组为例通过深度优先搜索实现遍历</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//初始化</div><div class="line">int book[101],a[101][101],min=999999;</div><div class="line">//cur表示当前位置</div><div class="line">void dfs(int cur)</div><div class="line">&#123;</div><div class="line">	出口</div><div class="line">//尝试当前位置到各个位置的路径</div><div class="line">	<span class="keyword">for</span>(j=1;j&lt;=n;j++)&#123;</div><div class="line">//判断当前位置到各个位置的路径</div><div class="line">		<span class="keyword">if</span>(a[cur][j] != min &amp;&amp; book[j]==0)&#123;</div><div class="line">			book[j]=1;//标记已经过该位置</div><div class="line">			dfs(j);//以当前位置为起点探索下一个目标</div><div class="line">			book[j]=0;//回溯	</div><div class="line">       		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[随便扯扯广度优先搜索]]></title>
       <url>https://extratztty.github.io/2017/04/04/%E9%9A%8F%E4%BE%BF%E6%89%AF%E6%89%AF%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
       <content type="html"><![CDATA[<p>其实上个学期若不是必要我一般不用函数来解决算法问题，或者说，我比较习惯在main函数里完成所有算法过程。</p>
@@ -59,7 +96,7 @@
 <h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><ol>
 <li>使用数字后面跟上句号（注意添加空格）</li>
 </ol>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="内联方式"><a href="#内联方式" class="headerlink" title="内联方式"></a>内联方式</h2><p>Hi , welcome to [extratztty’s romain] (<a href="https://extratztty.github.io">https://extratztty.github.io</a>)</p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="内联方式"><a href="#内联方式" class="headerlink" title="内联方式"></a>内联方式</h2><p>Hi , welcome to [extratztty’s domain] (<a href="https://extratztty.github.io">https://extratztty.github.io</a>)</p>
 <h2 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h2><p>I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3]. </p> 
 
 <p><span>[1]: <a href="http://google.com/" target="_blank" rel="external">http://google.com/</a></span><br><span>[2]: <a href="http://search.yahoo.com/" target="_blank" rel="external">http://search.yahoo.com/</a></span><br><span>[3]: <a href="http://search.msn.com/" target="_blank" rel="external">http://search.msn.com/</a></span></p>
