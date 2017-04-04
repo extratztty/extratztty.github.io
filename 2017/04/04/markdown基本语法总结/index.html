@@ -10,6 +10,8 @@
     
     <title>
         
+            markdown基本语法总结 | 
+        
         Extratztty&#39;s Romain
     </title>
 
@@ -25,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="extratztty">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,markdown">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -46,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://extratztty.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Extratztty&#39;s Romain">
+    <meta property="og:title" content="markdown基本语法总结 | Extratztty&#39;s Romain">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="markdown"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -207,359 +209,271 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/32.jpg)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                Hi, nice to meet you
-            
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>extratztty</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-
-
-
-
-    <!-- Local -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" class="mdl-textfield__expandable-holder">
-            <input type="text" id="search" class="form-control mdl-textfield__input search-input" name="q" results="0" placeholder=""/>
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-        </form>
-    </div>
-    <div id="local-search-result"></div>
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#">
-            <img src="/img/logo.png" alt="logo" />
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
         </a>
     </div>
+    -->
 
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>Extratztty&#39;s Romain</strong>
-        </div>
-        <div class="section-spacer"></div>
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
 
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-                <a class="index_share-link" href="/about/" title="关于我">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        关于我
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/links/" title="友情链接">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        友情链接
-                    </li>
-                </a>
-            
-        </ul>
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#标题设置"><span class="post-toc-number">1.</span> <span class="post-toc-text">标题设置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#块注释"><span class="post-toc-number">2.</span> <span class="post-toc-text">块注释</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#斜体"><span class="post-toc-number">3.</span> <span class="post-toc-text">斜体</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#粗体"><span class="post-toc-number">4.</span> <span class="post-toc-text">粗体</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无序列表"><span class="post-toc-number">5.</span> <span class="post-toc-text">无序列表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有序列表"><span class="post-toc-number">6.</span> <span class="post-toc-text">有序列表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联方式"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">内联方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用方式"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">引用方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图片"><span class="post-toc-number">8.</span> <span class="post-toc-text">图片</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联方式-1"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">内联方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用方式-1"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">引用方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">9.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#脚注"><span class="post-toc-number">10.</span> <span class="post-toc-text">脚注</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下划线"><span class="post-toc-number">11.</span> <span class="post-toc-text">下划线</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#postscript"><span class="post-toc-number">12.</span> <span class="post-toc-text">postscript</span></a></li></ol>
 
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
 
-            
 
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Extratztty&#39;s Romain&url=https://extratztty.github.io/&pic=&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到微博
-                    </li>
-                </a>
-            
 
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=Extratztty&#39;s Romain&url=https://extratztty.github.io/&via=extratztty" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Twitter
-                    </li>
-                </a>
-            
 
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://extratztty.github.io//index.html" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Facebook
-                    </li>
-                </a>
-            
+<!-- Layouts -->
 
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=https://extratztty.github.io/" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Google+
-                    </li>
-                </a>
-            
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-            
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
-            
-                <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Extratztty&#39;s Romain&title=Extratztty&#39;s Romain&summary=null&pics=https://extratztty.github.io/img/favicon.png&url=https://extratztty.github.io/" target="_blank">
-                    <li class="mdl-menu__item">
-                        分享到 QQ
-                    </li>
-                </a>
-            
-
-            
-        </ul>
-    </div>
-</div>
-
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-
-    <!-- Normal Post -->
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/04/04/markdown基本语法总结/">markdown基本语法总结</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            标题设置
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/04/markdown基本语法总结/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="extratztty's avatar">
-            </div>
-            <div>
-                <strong>extratztty</strong>
-                <span>4月 04, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-        
-        
-        
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/04/03/一些关于深度优先搜索的总结/">一些关于深度优先搜索的总结</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            过几天就是蓝桥杯了，虽然lowbee一个，但毕竟交了钱的，有必要做些准备。                 
-其实上个学期前都没怎么用...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/03/一些关于深度优先搜索的总结/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="extratztty's avatar">
-            </div>
-            <div>
-                <strong>extratztty</strong>
-                <span>4月 03, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-        
-        
-        
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/04/02/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/02/hello-world/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="extratztty's avatar">
-            </div>
-            <div>
-                <strong>extratztty</strong>
-                <span>4月 02, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-        
-        
-        
-    
-
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
-    }
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                markdown基本语法总结
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>extratztty</strong>
+        <span>4月 04, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/markdown/">markdown</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=markdown基本语法总结&url=https://extratztty.github.io//2017/04/04/markdown基本语法总结/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=markdown基本语法总结&url=https://extratztty.github.io//2017/04/04/markdown基本语法总结/index.html&via=extratztty" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://extratztty.github.io//2017/04/04/markdown基本语法总结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://extratztty.github.io//2017/04/04/markdown基本语法总结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Extratztty&#39;s Romain&title=markdown基本语法总结&summary=null&pics=https://extratztty.github.io/img/favicon.png&url=https://extratztty.github.io/2017/04/04/markdown基本语法总结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="标题设置"><a href="#标题设置" class="headerlink" title="标题设置"></a>标题设置</h1><p>在markdown当中设置标题，有两种方式：</p>
+<ol>
+<li><p>通过在文字下方添加“=”和“-“,他们分别表示一级标题和二级标题。</p>
+</li>
+<li><p>在文字开头加上“#”，通过“#”数量表示几级标题。（一共6级标题）</p>
+</li>
+</ol>
+<h1 id="块注释"><a href="#块注释" class="headerlink" title="块注释"></a>块注释</h1><p>通过在文字开头添加“&gt;”表示块注释。</p>
+<blockquote>
+<p>当&gt;和文字之间添加五个blank时,注释块会变化。</p>
+</blockquote>
+<h1 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h1><p>将需要设置为<em>斜体</em>的文字两端使用一个“*”或“_”夹起来</p>
+<h1 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h1><p>将需要设置为<strong>粗体</strong>的文字两端使用两个“**”或“_”夹起来</p>
+<h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><ul>
+<li><p>在文字开头添加（*，+，-）实现无序列表（注意添加空格）</p>
+</li>
+<li><p>建议: 一个文档只是用一种无序列表的表示方式。</p>
+</li>
+</ul>
+<h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><ol>
+<li>使用数字后面跟上句号（注意添加空格）</li>
+</ol>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="内联方式"><a href="#内联方式" class="headerlink" title="内联方式"></a>内联方式</h2><p>Hi , welcome to [extratztty’s romain] (<a href="https://extratztty.github.io">https://extratztty.github.io</a>)</p>
+<h2 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h2><p>I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3]. </p> 
+
+<p><span>[1]: <a href="http://google.com/" target="_blank" rel="external">http://google.com/</a></span><br><span>[2]: <a href="http://search.yahoo.com/" target="_blank" rel="external">http://search.yahoo.com/</a></span><br><span>[3]: <a href="http://search.msn.com/" target="_blank" rel="external">http://search.msn.com/</a></span></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>图片的处理方式类似链接的处理方式</p>
+<h2 id="内联方式-1"><a href="#内联方式-1" class="headerlink" title="内联方式"></a>内联方式</h2><p>![alt text] (/img/avatar.png “Title”)</p>
+<h2 id="引用方式-1"><a href="#引用方式-1" class="headerlink" title="引用方式"></a>引用方式</h2><p>![alt text][id]</p>
+
+<p><span>[id]: /img/avatar.png”Title”</span></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>实现方式有两种：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">简单文字出现一个代码框。使用`&lt;blockquote&gt;`。（`不是单引号而是左上角的ESC下面~中的`）</div><div class="line">大片文字需要实现代码框。使用Tab和四个空格。</div></pre></td></tr></table></figure>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>hello[^hello]</p>
+
+
+<p><span>[^hello]: hi</span></p>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><p>在空白行下方添加三条“-”横线。</p>
+<hr>
+<h1 id="postscript"><a href="#postscript" class="headerlink" title="postscript"></a>postscript</h1><p>在 HTML 区块标签间的 Markdown 格式语法将不会被处理</p>
+<p>HTML 的区段（行内）标签可以在 Markdown 的段落、列表或是标题里随意使用。</p>
+<p>依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/04/03/一些关于深度优先搜索的总结/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

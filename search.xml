@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title><![CDATA[markdown基本语法总结]]></title>
+      <url>https://extratztty.github.io/2017/04/04/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h1 id="标题设置"><a href="#标题设置" class="headerlink" title="标题设置"></a>标题设置</h1><p>在markdown当中设置标题，有两种方式：</p>
+<ol>
+<li><p>通过在文字下方添加“=”和“-“,他们分别表示一级标题和二级标题。</p>
+</li>
+<li><p>在文字开头加上“#”，通过“#”数量表示几级标题。（一共6级标题）</p>
+</li>
+</ol>
+<h1 id="块注释"><a href="#块注释" class="headerlink" title="块注释"></a>块注释</h1><p>通过在文字开头添加“&gt;”表示块注释。</p>
+<blockquote>
+<p>当&gt;和文字之间添加五个blank时,注释块会变化。</p>
+</blockquote>
+<h1 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h1><p>将需要设置为<em>斜体</em>的文字两端使用一个“*”或“_”夹起来</p>
+<h1 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h1><p>将需要设置为<strong>粗体</strong>的文字两端使用两个“**”或“_”夹起来</p>
+<h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><ul>
+<li><p>在文字开头添加（*，+，-）实现无序列表（注意添加空格）</p>
+</li>
+<li><p>建议: 一个文档只是用一种无序列表的表示方式。</p>
+</li>
+</ul>
+<h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><ol>
+<li>使用数字后面跟上句号（注意添加空格）</li>
+</ol>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="内联方式"><a href="#内联方式" class="headerlink" title="内联方式"></a>内联方式</h2><p>Hi , welcome to [extratztty’s romain] (<a href="https://extratztty.github.io">https://extratztty.github.io</a>)</p>
+<h2 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h2><p>I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3]. </p> 
+
+<p><span>[1]: <a href="http://google.com/" target="_blank" rel="external">http://google.com/</a></span><br><span>[2]: <a href="http://search.yahoo.com/" target="_blank" rel="external">http://search.yahoo.com/</a></span><br><span>[3]: <a href="http://search.msn.com/" target="_blank" rel="external">http://search.msn.com/</a></span></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>图片的处理方式类似链接的处理方式</p>
+<h2 id="内联方式-1"><a href="#内联方式-1" class="headerlink" title="内联方式"></a>内联方式</h2><p>![alt text] (/img/avatar.png “Title”)</p>
+<h2 id="引用方式-1"><a href="#引用方式-1" class="headerlink" title="引用方式"></a>引用方式</h2><p>![alt text][id]</p>
+
+<p><span>[id]: /img/avatar.png”Title”</span></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>实现方式有两种：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">简单文字出现一个代码框。使用`&lt;blockquote&gt;`。（`不是单引号而是左上角的ESC下面~中的`）</div><div class="line">大片文字需要实现代码框。使用Tab和四个空格。</div></pre></td></tr></table></figure>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>hello[^hello]</p>
+
+
+<p><span>[^hello]: hi</span></p>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><p>在空白行下方添加三条“-”横线。</p>
+<hr>
+<h1 id="postscript"><a href="#postscript" class="headerlink" title="postscript"></a>postscript</h1><p>在 HTML 区块标签间的 Markdown 格式语法将不会被处理</p>
+<p>HTML 的区段（行内）标签可以在 Markdown 的段落、列表或是标题里随意使用。</p>
+<p>依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[一些关于深度优先搜索的总结]]></title>
       <url>https://extratztty.github.io/2017/04/03/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%9A%84%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>过几天就是蓝桥杯了，虽然lowbee一个，但毕竟交了钱的，有必要做些准备。                 </p>
