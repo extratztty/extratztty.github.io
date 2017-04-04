@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title><![CDATA[随便扯扯广度优先搜索]]></title>
+      <url>https://extratztty.github.io/2017/04/04/%E9%9A%8F%E4%BE%BF%E6%89%AF%E6%89%AF%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
+      <content type="html"><![CDATA[<p>其实上个学期若不是必要我一般不用函数来解决算法问题，或者说，我比较习惯在main函数里完成所有算法过程。</p>
+<p>但在接触到广度优先搜索之前，我已经就深搜做了一定的练习，需要学习总结的还有很多，且时间有限，只能对广搜进行纸上谈兵式的总结。</p>
+<h1 id="关于广度优先搜索"><a href="#关于广度优先搜索" class="headerlink" title="关于广度优先搜索"></a>关于广度优先搜索</h1><p>宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。</p>
+<p>感觉广度优先搜索和深度优先搜索在一定程度上可以说等效，虽说在不同情况下也各有优势，但通过设置一些变量或数组很多时候都能达到类似的效果。</p>
+<p>总结广度优先搜索，就是把树结构的每一级节点一级一级向下的存储在一个随之不断更新的队列数组中，更偏向于横向的发展，所以如果是题目需要记录步数或路径的情况，处理起来会有些不方便，相反，如果是要输出某一阶段的所有情况，广搜会比较有利。</p>
+<h1 id="广度优先搜索总结"><a href="#广度优先搜索总结" class="headerlink" title="广度优先搜索总结"></a>广度优先搜索总结</h1><h2 id="广搜基本模型总结"><a href="#广搜基本模型总结" class="headerlink" title="广搜基本模型总结"></a>广搜基本模型总结</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">struct note </div><div class="line">&#123;</div><div class="line">	变量</div><div class="line">	(int father)//记录父节点编号，用于输出路径</div><div class="line">	(int step)//记录步数</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int head=1,tail=1;</div><div class="line">	初始化</div><div class="line">	tail++;</div><div class="line">	<span class="keyword">while</span>(head&lt;tail)</div><div class="line">	&#123;</div><div class="line">		枚举各种情况</div><div class="line">		计算下一个节点</div><div class="line">		判断&#123;</div><div class="line">			插入新节点</div><div class="line">			tail++;</div><div class="line">		&#125;</div><div class="line">		出口</div><div class="line">		head++;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="广搜关键点总结"><a href="#广搜关键点总结" class="headerlink" title="广搜关键点总结"></a>广搜关键点总结</h2><ul>
+<li>判断解题需要用到不定次循环;</li>
+<li>根据已知条件及题目要求确定变量;</li>
+<li>注意head,tail位置;</li>
+<li>考虑出口;</li>
+<li>根据题目所需选择数组或变量记录路径或步数;</li>
+<li>用book数组对路径进行标记;</li>
+<li>考虑边界;</li>
+<li>可以先通过分析大致画出树状图再编程;</li>
+<li>注意条件！注意条件！注意条件！</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[markdown基本语法总结]]></title>
       <url>https://extratztty.github.io/2017/04/04/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<h1 id="标题设置"><a href="#标题设置" class="headerlink" title="标题设置"></a>标题设置</h1><p>在markdown当中设置标题，有两种方式：</p>
@@ -86,8 +117,8 @@
 <h3 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h3><p>最多20个整数，分别表示导弹依次飞来的高度（雷达给出高度数据是不大于30000的正整数）</p>
 <h3 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h3><p>整数M。表示：这套系统最多能拦截 M 枚导弹.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//其实这题不太适合用深搜，不过有发现挺多值得注意的点，于是也写进来了</div><div class="line"><span class="comment">#include&lt;iostream&gt;//1287</span></div><div class="line">using namespace std;</div><div class="line">//全局变量</div><div class="line">int count,a[25]=&#123;30000&#125;,s,ma=-999;</div><div class="line">//参数为上一个导弹的高度</div><div class="line">void dfs(int prev)&#123; </div><div class="line">    int i;</div><div class="line">	<span class="keyword">for</span>(i=prev+1;i&lt;=count;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]&lt;=a[prev])&#123;</div><div class="line">			s++;</div><div class="line">//本次导弹高度座位下一次递归的参数</div><div class="line">			dfs(i);</div><div class="line">//回溯</div><div class="line">			s--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">//出口——若余下的导弹高度均大于当前，返回	  </div><div class="line">	<span class="keyword">for</span>(i=prev+1;i&lt;=count;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]&lt;=a[prev])<span class="built_in">break</span>;</div><div class="line">	&#125;</div><div class="line">//用循环判断均不成立，记录拦截导弹数的至多值</div><div class="line">	<span class="keyword">if</span>(i&gt;count)&#123;</div><div class="line">	   <span class="keyword">if</span>(s&gt;ma)ma=s;</div><div class="line">	   <span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n=1;</div><div class="line">//需用文件导入方式结束循环</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;a[n])n++;</div><div class="line">//记录导弹总数</div><div class="line">	count=n-1;</div><div class="line">	dfs(0);</div><div class="line">	cout&lt;&lt;ma;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="深度优先搜索的总结"><a href="#深度优先搜索的总结" class="headerlink" title="深度优先搜索的总结"></a>深度优先搜索的总结</h1><h2 id="深搜基本模型"><a href="#深搜基本模型" class="headerlink" title="深搜基本模型"></a>深搜基本模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">void dfs(int step)</div><div class="line">&#123;</div><div class="line">判断边界</div><div class="line">尝试每一种可能 <span class="keyword">for</span>(i=1;i&lt;=n;i++)</div><div class="line">&#123;</div><div class="line">继续下一步 dfs(step+1);</div><div class="line">&#125;</div><div class="line">返回</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="深搜总结"><a href="#深搜总结" class="headerlink" title="深搜总结"></a>深搜总结</h2><ul>
+<h1 id="深度优先搜索的总结"><a href="#深度优先搜索的总结" class="headerlink" title="深度优先搜索的总结"></a>深度优先搜索的总结</h1><h2 id="深搜基本模型总结"><a href="#深搜基本模型总结" class="headerlink" title="深搜基本模型总结"></a>深搜基本模型总结</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">void dfs(int step)</div><div class="line">&#123;</div><div class="line">	判断边界</div><div class="line">	尝试每一种可能 <span class="keyword">for</span>(i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		继续下一步 dfs(step+1);</div><div class="line">	&#125;</div><div class="line"> 	返回</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="深搜关键点总结"><a href="#深搜关键点总结" class="headerlink" title="深搜关键点总结"></a>深搜关键点总结</h2><ul>
 <li>判断解题需要用到<strong>不定次循环</strong>;</li>
 <li>根据已知条件及题目要求确定<strong>在递归过程的变量</strong>，以此判断函数变量;</li>
 <li>考虑出口;</li>
