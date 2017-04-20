@@ -7,12 +7,14 @@
       <title><![CDATA[关于less的一些东东]]></title>
       <url>https://extratztty.github.io/2017/04/16/%E5%85%B3%E4%BA%8Eless%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E4%B8%9C/</url>
       <content type="html"><![CDATA[<p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><blockquote>
+<ol>
 <li>win+R打开cmd输入<br><code>$ npm install -g less</code></li>
 <li>如果在webstorm配置less<br>File-Settings-External Tools- + - {<br>Name:less(随意);<br>Program:填node.exe的路径;<br>Parameters:填lessc的路径(好像会有两个，选node_modules下的那一个) + $FilePath$ $FileDir$\$FileNameWithoutExtension$.css;<br>Working directory:node.js的路径}</li>
 <li>然后在keymap里配一下的快捷键，建个less的文件，编译一下，返回 0应该就算成功了。</li>
 </ol>
-<p>有另外比较皮的想法可以看看<a href="http://lesscss.cn/" target="_blank" rel="external">官网</a></p>
+</blockquote>
+<p>有其他想法可以看看<a href="http://lesscss.cn/" target="_blank" rel="external">官网</a></p>
 <h1 id="less的语言特性摘录"><a href="#less的语言特性摘录" class="headerlink" title="less的语言特性摘录"></a>less的语言特性摘录</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>官网原文说These are pretty self-explanatory，嗯，显而易见<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@nice-blue: <span class="comment">#5B83AD;</span></div><div class="line">@light-blue: @nice-blue + <span class="comment">#111;</span></div><div class="line"></div><div class="line"><span class="comment">#header &#123;</span></div><div class="line">  color: @light-blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line">输出：</div><div class="line"><span class="comment">#header &#123;</span></div><div class="line">  color: <span class="comment">#6c94be;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>请注意，变量实际上是“常量”，因为它们只能定义一次。</p>
 <p>大致就是，通过@符号定义变量，并赋值，支持类似JavaScript中的字符串 + 运算。</p>
