@@ -235,7 +235,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件"><span class="post-toc-number">1.</span> <span class="post-toc-text">组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体图标"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">字体图标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下拉菜单"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">下拉菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#按钮组"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">按钮组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#￣Д-￣-┍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">(￣Д ￣)┍</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插件"><span class="post-toc-number">2.</span> <span class="post-toc-text">插件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bootstrap规范"><span class="post-toc-number">3.</span> <span class="post-toc-text">Bootstrap规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性顺序"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">属性顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#声明顺序"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">声明顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#杂项"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">杂项</span></a></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -387,7 +387,83 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>Bootstrap拥有大量方便实用的组件或插件</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><ul>
+<li>无数可复用的组件，包括字体图标、下拉菜单、导航、警告框、弹出框等更多功能。</li>
+</ul>
+<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><blockquote>
+<p>一波来自 Glyphicon Halflings 的<a href="http://v3.bootcss.com/components/#glyphicons" target="_blank" rel="external">字体图标</a></p>
+<p>图标类不能和其它组件直接联合使用且只能应用在不包含任何文本内容或子元素的元素上。</p>
+<p>应该创建一个嵌套的 &lt;span&gt; 标签，并将图标类应用到这个 &lt;span&gt; 标签上。</p>
+<p><em>通过aria-hidden或aria-label属性确保图标含义能被辅助设备识别。</em></p>
+</blockquote>
+<h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><blockquote>
+<p>用于显示链接列表的可切换、有上下文的菜单。下拉菜单的 JavaScript 插件让它具有了交互性。</p>
+<p>将下拉菜单触发器和下拉菜单都包裹在 .dropdown (.dropup)里，或者另一个声明了 position: relative; 的元素。然后加入组成菜单的 HTML 代码。</p>
+<p>.dropdown-menu-right 在 .dropdown-menu 中添加可以让菜单右对齐。</p>
+<p>.dropdown-header 在下拉菜单中添加标题来标明一组动作。</p>
+<p>.divider 为下拉菜单添加一条分割线，用于将多个链接分组。</p>
+<p>.disabled 禁用相应的菜单项。</p>
+</blockquote>
+<p>实例见<a href="http://v3.bootcss.com/components/#dropdowns-example" target="_blank" rel="external">http://v3.bootcss.com/components/#dropdowns-example</a></p>
+<h2 id="按钮组"><a href="#按钮组" class="headerlink" title="按钮组"></a>按钮组</h2><blockquote>
+<p>通过按钮组容器把一组按钮放在同一行里。通过与按钮插件联合使用，可以设置为单选框或多选框的样式和行为。</p>
+<p>当为 .btn-group 中的元素应用工具提示或弹出框时，必须指定 container: ‘body’ 选项，这样可以避免不必要的副作用（例如工具提示或弹出框触发时，会让页面元素变宽和/或失去圆角）。</p>
+<p>按钮组和工具栏应给定一个明确的label标签</p>
+</blockquote>
+<p>具体更多见<a href="http://v3.bootcss.com/components/#btn-groups-single" target="_blank" rel="external">http://v3.bootcss.com/components/#btn-groups-single</a></p>
+<h2 id="￣Д-￣-┍"><a href="#￣Д-￣-┍" class="headerlink" title="(￣Д ￣)┍"></a>(￣Д ￣)┍</h2><p>输入框组<a href="http://v3.bootcss.com/components/#input-groups" target="_blank" rel="external">http://v3.bootcss.com/components/#input-groups</a></p>
+<p>导航<a href="http://v3.bootcss.com/components/#nav" target="_blank" rel="external">http://v3.bootcss.com/components/#nav</a></p>
+<p>导航条<a href="http://v3.bootcss.com/components/#navbar" target="_blank" rel="external">http://v3.bootcss.com/components/#navbar</a></p>
+<p>路径导航<a href="http://v3.bootcss.com/components/#breadcrumbs" target="_blank" rel="external">http://v3.bootcss.com/components/#breadcrumbs</a></p>
+<p>标签<a href="http://v3.bootcss.com/components/#labels" target="_blank" rel="external">http://v3.bootcss.com/components/#labels</a></p>
+<p>徽章<a href="http://v3.bootcss.com/components/#badges" target="_blank" rel="external">http://v3.bootcss.com/components/#badges</a></p>
+<p>巨幕<a href="http://v3.bootcss.com/components/#jumbotron" target="_blank" rel="external">http://v3.bootcss.com/components/#jumbotron</a></p>
+<p>页头<a href="http://v3.bootcss.com/components/#page-header" target="_blank" rel="external">http://v3.bootcss.com/components/#page-header</a></p>
+<p>缩略图<a href="http://v3.bootcss.com/components/#thumbnails" target="_blank" rel="external">http://v3.bootcss.com/components/#thumbnails</a></p>
+<p>警告框<a href="http://v3.bootcss.com/components/#alerts" target="_blank" rel="external">http://v3.bootcss.com/components/#alerts</a></p>
+<p>进度条<a href="http://v3.bootcss.com/components/#progress" target="_blank" rel="external">http://v3.bootcss.com/components/#progress</a></p>
+<p>媒体对象<a href="http://v3.bootcss.com/components/#media" target="_blank" rel="external">http://v3.bootcss.com/components/#media</a></p>
+<p>列表组<a href="http://v3.bootcss.com/components/#list-group" target="_blank" rel="external">http://v3.bootcss.com/components/#list-group</a></p>
+<p>面板<a href="http://v3.bootcss.com/components/#panels" target="_blank" rel="external">http://v3.bootcss.com/components/#panels</a></p>
+<p>具有响应式特性的嵌入内容<a href="http://v3.bootcss.com/components/#responsive-embed" target="_blank" rel="external">http://v3.bootcss.com/components/#responsive-embed</a></p>
+<p>Well<a href="http://v3.bootcss.com/components/#wells" target="_blank" rel="external">http://v3.bootcss.com/components/#wells</a></p>
+<p>懒~</p>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><p><a href="http://v3.bootcss.com/javascript/" target="_blank" rel="external">http://v3.bootcss.com/javascript/</a></p>
+<h1 id="Bootstrap规范"><a href="#Bootstrap规范" class="headerlink" title="Bootstrap规范"></a>Bootstrap规范</h1><h2 id="属性顺序"><a href="#属性顺序" class="headerlink" title="属性顺序"></a>属性顺序</h2><p>HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。</p>
+<ol>
+<li>class</li>
+<li>id,name</li>
+<li>data-*</li>
+<li>src,for,type,href,value</li>
+<li>title,alt</li>
+<li>role,aria-*</li>
+</ol>
+<h2 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h2><p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+<ol>
+<li>Positioning(position, top, z-index …)</li>
+<li>Box model(display, float, width …)</li>
+<li>Typographic(font, line-height, color, text-align …)</li>
+<li>Visual(backgound-color, border …)</li>
+<li>Misc(opacity)</li>
+</ol>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><ul>
+<li>减少标签的数量</li>
+<li>避免使用JavaScript生成的标签</li>
+<li>不要使用 @import</li>
+<li>将媒体查询放在尽可能相关规则的附近</li>
+<li>对于只包含一条声明的样式，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</li>
+<li>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</li>
+<li>class 名称中只能出现小写字符和破折号（dashe）</li>
+<li>class 名称应当尽可能短，并且意义明确。避免过度任意的简写</li>
+<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
+<li>对于通用元素使用 class ，这样利于渲染性能的优化</li>
+<li>对于经常出现的组件，避免使用属性选择器</li>
+<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3 。</li>
+<li>以组件为单位组织代码段</li>
+</ul>
+
     
 
     
