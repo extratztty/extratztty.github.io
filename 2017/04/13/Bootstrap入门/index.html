@@ -423,34 +423,45 @@
 <p><strong> 一些可能是新的标签：</strong><br><mark>&lt;mark&gt;（需要突出的文本）</mark><br><del>&lt;del&gt;（被删除的文本）</del><br><s>&lt;s&gt;（没用的文本）</s><br><ins>&lt;ins&gt;（额外插入的文本）</ins><br><u>&lt;u&gt;（为文本添加下划线）</u><br><em>&lt;em&gt;（斜体）</em><br><abbr title="完整内容">&lt;abbr&gt;（缩略语）</abbr></p>
 <p><blockquote>&lt;blockquote&gt;（引用）</blockquote><br><cite>&lt;cite&gt;（引用来源）</cite><br><kbd>&lt;kbd&gt;（标记用户通过键盘输入的内容）</kbd></p>
 <p><pre>&lt;pre&gt;（多行代码）</pre><br><var>&lt;var&gt;（标记变量）</var><br><samp>&lt;samp&gt;（标记程序输出的内容）</samp></p>
-<h1 id="postscript"><a href="#postscript" class="headerlink" title="postscript"></a>postscript</h1><ol>
-<li><p>在 HTML5 中可以放心使用 &lt;b&gt; 和 &lt;i&gt; 标签。&lt;b&gt; 用于高亮单词或短语，不带有任何着重的意味；而 &lt;i&gt; 标签主要用于发言、技术词汇等。</p>
-</li>
-<li><p>不要将表单组直接和输入框组混合使用。建议将输入框组嵌套到表单组中使用。</p>
-</li>
-<li><p>如果你没有为每个输入控件设置 label 标签，屏幕阅读器将无法正确识别。对于这些内联表单，你可以通过为 label 设置 .sr-only 类将其隐藏。</p>
-</li>
-<li><p>支持多行文本的表单控件。可根据需要改变 rows 属性。</p>
-</li>
-<li><p>对于标记了 multiple 属性的 &lt;select&gt; 控件来说，默认显示多选项。</p>
-</li>
-<li><p>为输入框设置 disabled 属性可以禁止其与用户有任何交互（焦点、输入等）。被禁用的输入框颜色更浅，并且还添加了 not-allowed 鼠标状态。</p>
-</li>
-<li><p>为 &lt;button&gt; 元素添加 disabled 属性，使其表现出禁用状态。</p>
-</li>
-<li><p>为输入框设置 readonly 属性可以禁止用户修改输入框中的内容</p>
-</li>
-<li><p>Bootstrap 对表单控件的校验状态，都定义了样式。使用时，添加 .has-warning、.has-error 或 .has-success 类到这些控件的父元素。任何包含在此元素之内的 .control-label、.form-control 和 .help-block 元素都将接受这些校验状态的样式。</p>
-</li>
-<li><p>你还可以针对校验状态为输入框添加额外的图标。只需设置相应的 .has-feedback 类并添加正确的图标即可。反馈图标（feedback icon）只能使用在文本输入框 &lt;input class=”form-control”&gt; 元素上。</p>
-</li>
-<li><p>按钮类可以应用到 &lt;a&gt; 和 &lt;button&gt; 元素上，但是，导航和导航条组件只支持 &lt;button&gt; 元素。<br>如果 &lt;a&gt; 元素被作为按钮使用 – 并用于在当前页面触发某些功能 – 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 role=”button” 属性。</p>
-</li>
-<li><p>快速浮动不能用于导航条组件中。排列导航条中的组件时可以使用这些工具类：.navbar-left 或 .navbar-right 。 参见导航条文档以获取更多信息。</p>
-</li>
-<li><p>!important 来避免 CSS 样式优先级问题</p>
-</li>
-</ol>
+<h1 id="postscript"><a href="#postscript" class="headerlink" title="postscript"></a>postscript</h1><ul>
+<li>在 HTML5 中可以放心使用 &lt;b&gt; 和 &lt;i&gt; 标签。&lt;b&gt; 用于高亮单词或短语，不带有任何着重的意味；而 &lt;i&gt; 标签主要用于发言、技术词汇等。</li>
+</ul>
+<ul>
+<li>不要将表单组直接和输入框组混合使用。建议将输入框组嵌套到表单组中使用。</li>
+</ul>
+<ul>
+<li>如果你没有为每个输入控件设置 label 标签，屏幕阅读器将无法正确识别。对于这些内联表单，你可以通过为 label 设置 .sr-only 类将其隐藏。</li>
+</ul>
+<ul>
+<li>支持多行文本的表单控件。可根据需要改变 rows 属性。</li>
+</ul>
+<ul>
+<li>对于标记了 multiple 属性的 &lt;select&gt; 控件来说，默认显示多选项。</li>
+</ul>
+<ul>
+<li>为输入框设置 disabled 属性可以禁止其与用户有任何交互（焦点、输入等）。被禁用的输入框颜色更浅，并且还添加了 not-allowed 鼠标状态。</li>
+</ul>
+<ul>
+<li>为 &lt;button&gt; 元素添加 disabled 属性，使其表现出禁用状态。</li>
+</ul>
+<ul>
+<li>为输入框设置 readonly 属性可以禁止用户修改输入框中的内容</li>
+</ul>
+<ul>
+<li>Bootstrap 对表单控件的校验状态，都定义了样式。使用时，添加 .has-warning、.has-error 或 .has-success 类到这些控件的父元素。任何包含在此元素之内的 .control-label、.form-control 和 .help-block 元素都将接受这些校验状态的样式。</li>
+</ul>
+<ul>
+<li>你还可以针对校验状态为输入框添加额外的图标。只需设置相应的 .has-feedback 类并添加正确的图标即可。反馈图标（feedback icon）只能使用在文本输入框 &lt;input class=”form-control”&gt; 元素上。</li>
+</ul>
+<ul>
+<li>按钮类可以应用到 &lt;a&gt; 和 &lt;button&gt; 元素上，但是，导航和导航条组件只支持 &lt;button&gt; 元素。<br>如果 &lt;a&gt; 元素被作为按钮使用 – 并用于在当前页面触发某些功能 – 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 role=”button” 属性。</li>
+</ul>
+<ul>
+<li>快速浮动不能用于导航条组件中。排列导航条中的组件时可以使用这些工具类：.navbar-left 或 .navbar-right 。 参见导航条文档以获取更多信息。</li>
+</ul>
+<ul>
+<li>!important 来避免 CSS 样式优先级问题</li>
+</ul>
 <p>以上仅包括<a href="http://v3.bootcss.com/css/" target="_blank" rel="external">全局 CSS 样式</a>部分</p>
 <p>另外还有</p>
 <p><strong> <a href="http://v3.bootcss.com/css/#less-bootstrap" target="_blank" rel="external">编译 Bootstrap</a> </strong></p>
@@ -591,7 +602,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">8</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">8</span></a>
             </ul>
         </li>
         
@@ -643,7 +654,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">8</span>
+                <span class="sidebar-badge">10</span>
             </a>
         </li>
         
